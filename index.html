@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <meta property="og:title" content="SinMDM: Single Motion Diffusion"/>
+    <meta property="og:url" content="https://sin-mdm.github.io/sin-mdm-page/"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+
+
+    <title>Single Motion Diffusion</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EWRYSDM25P"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-EWRYSDM25P');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
+    <link rel="icon" href="static/figures/img_2.png">
+
+    <link rel="stylesheet" href="static/css/bulma.min.css">
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script defer src="static/js/fontawesome.all.min.js"></script>
+    <script src="static/js/bulma-carousel.min.js"></script>
+    <script src="static/js/bulma-slider.min.js"></script>
+    <script src="static/js/index.js"></script>
+</head>
+
+<body>
+
+
+<section class="publication-header">
+    <div class="hero-body">
+        <div class="container is-max-widescreen">
+            <!-- <div class="columns is-centered"> -->
+            <div class="column has-text-centered">
+                <h1 class="title is-1 publication-title">SinMDM: Single Motion Diffusion</h1>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="publication-author-block">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+
+                    <div class="column has-text-centered">
+                        <div class="is-size-4 publication-authors">
+                            <span class="author-block">Anonymous Authors<sup></sup></span>
+                        </div>
+                    </div>
+
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2209.14916" target="_blank"
+                   class="external-link button is-normal is-rounded">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+                            <span class="link-block">
+                <a href="https://github.com/__/sin-mdm" target="_blank"
+                   class="external-link button is-normal is-rounded">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+              </a>
+
+              </span>
+
+                            <span class="link-block">
+                <a href="https://youtube.com/motion_diffusion_model" target="_blank"
+                   class="external-link button is-normal is-rounded">
+                <span class="icon">
+                  <i class="fab fa-youtube"></i>
+                </span>
+                <span>Video</span>
+              </a>
+              </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="hero teaser">
+    <div class="container is-max-desktop">
+        <div class="hero-body">
+
+            <div class="column is-centered has-text-centered">
+                <img src="static/figures/dragon_morelight2.png" alt="breakdancing dragons"/>
+            </div>
+            <!--      <video id="teaser" autoplay muted loop playsinline height="100%">-->
+            <!--        <source src="./static/figures/teaser_all.png"-->
+            <!--                type="video/mp4">-->
+            <!--      </video>-->
+            <h2 class="subtitle has-text-centered">
+                <span class="sin-mdm">SinMDM</span> learns the internal motion motifs from a single motion
+                sequence with arbitrary topology and synthesizes motions that are faithful
+                to the core learned motifs of the input sequence. For example, a breakdancing dragon.
+            </h2>
+            <img src="static/figures/5_frames_michelle.png" alt="breakdancing dragons"/>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="section hero is-light">
+    <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <div class="item">
+                    <p style="margin-bottom: 30px">
+                        <iframe width="720" height="405" src="https://www.youtube.com/embed/y2Ky3Wo37AY"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                    </p>
+                </div>
+                <h2 class="title is-3">Abstract</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        Synthesizing realistic animations of humans, animals, and even imaginary creatures has long been
+                        a goal for artists and computer graphics professionals. Compared to the imaging domain, which is
+                        rich with large available datasets, the number of data instances for the motion domain is
+                        limited, particularly
+                        for the animation of animals and exotic creatures (e.g., dragons), which have unique skeletons
+                        and motion patterns. In this work, we present a Single Motion Diffusion Model, dubbed SinMDM, a
+                        model designed to learn the internal motifs of a single motion sequence with arbitrary topology
+                        and synthesize motions of arbitrary length that are faithful to them.
+                        We harness the power of diffusion models and present a denoising network designed specifically
+                        for the task of learning from a single input motion. Our transformer-based architecture avoids
+                        overfitting by using local attention layers that narrow the receptive field, and encourages
+                        motion diversity by using relative positional embedding. SinMDM can be applied in a variety of
+                        contexts, including spatial and temporal in-betweening, motion expansion, harmonization, style
+                        transfer, and crowd animation. Our results show that SinMDM outperforms existing methods both in
+                        quality and time-space efficiency. Moreover, while current approaches require additional
+                        training for different applications, our work facilitates these applications at inference
+                        time.</p>
+                </div>
+            </div>
+        </div>
+        <!--/ Abstract. -->
+    </div>
+</section>
+
+
+<section class="section hero">
+    <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Generative Network</h2>
+                <div class="content has-text-justified">
+
+                    <p>
+                        To allow training on a single motion, our denoising network is designed such that its overall
+                        receptive field covers only a portion of the input
+                        sequence. This effectively allows the network to simultaneously learn from multiple local
+                        temporal motion segments.
+                    </p>
+                    <div class="column is-centered has-text-centered">
+                        <img src="static/figures/narrow-v2-1.png" alt="cars peace" width="80%"/>
+                    </div>
+                    <p>
+                        We consider two alternative architectures to learn from single motion: 𝑝𝐴1
+                        𝜃, a transformer-based approach, and 𝑝𝐴2 𝜃, a convolutional-based approach, utilizing a
+                        simplified version of the UNet architecture.
+                    </p>
+                    <div class="column is-centered has-text-centered">
+                        <img src="static/figures/qna-v2-1.png" alt="cars peace" width="40%"/>
+                        <img src="static/figures/unet-v2-1.png" alt="cars peace" width="40%"/>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!--/ Abstract. -->
+    </div>
+</section>
+
+
+<!-- 
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+
+      <div class="column is-centered has-text-centered">
+        <img src="static/figures/sampling.png" alt="cars peace"/>
+      </div>
+     
+    
+  </div>
+</div>
+</div>
+</section>
+ -->
+
+<section class="hero is-small is-light">
+    <div class="hero-body">
+        <div class="container">
+            <div class="column is-centered has-text-centered">
+                <h2 class="title is-3">Temporal Composition</h2>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+ <section class="hero is-small">
+                    <div class="hero-body">
+                        <div class="container">
+                            <div id="results-carousel" class="carousel results-carousel">
+                                <div class="column is-centered has-text-centered">
+                                    <p><b>Horses from prefix</b>
+                                    </p>
+                                    <video poster="" id="tree" autoplay controls muted loop width="60%">
+                                        <source src="static/videos/temporal_composition/horse_new.mp4"
+                                                type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="column is-centered has-text-centered">
+                                    <p><b>Walk to breakdance to walk</b></p>
+                                    <video poster="" id="tree" autoplay controls muted loop width="60%">
+                                        <source src="static/videos/temporal_composition/temporal_composition.mp4"
+                                                type="video/mp4">
+                                    </video>
+
+                                </div>
+                                <div class="column is-centered has-text-centered">
+                                    <p><b>Temporal outpainting</b></p>
+                                    <video poster="" id="tree" autoplay controls muted loop width="60%">
+                                        <source src="static/videos/temporal_composition/temporal_composition_outpainting.mp4"
+                                                type="video/mp4">
+                                    </video>
+
+                                </div>
+
+                                <div class="column is-centered has-text-centered">
+                                    <p><b>Warmup to warmup</b></p>
+                                    <video poster="" id="tree" autoplay controls muted loop width="60%">
+                                        <source src="static/videos/temporal_composition/temporal_composition_warmup.mp4"
+                                                type="video/mp4">
+                                    </video>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+<section class="hero is-small is-light">
+    <div class="hero-body">
+        <div class="container">
+            <div class="column is-centered has-text-centered">
+                <h2 class="title is-3">Spatial Composition</h2>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+ <section class="hero is-small">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+
+                 <div class="column is-centered has-text-centered">
+                    <p><b>Upper body reference</b></p>
+                    <video poster="" id="tree" autoplay muted loop width="80%">
+                        <source src="static/videos/spatial_composition/reference_upper_body_0000-0189.mp4"
+                                type="video/mp4">
+                    </video>
+
+                </div>
+                 <div class="column is-centered has-text-centered">
+                    <p><b>Training Sequence</b></p>
+                    <video poster="" id="tree" autoplay muted loop width="80%">
+                        <source src="static/videos/spatial_composition/walk_in_circle_0000-0377.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                </div>
+
+               <div class="column is-centered has-text-centered">
+                 <p><b>Generated</b>
+                    </p>
+                    <video poster="" id="tree" autoplay muted loop width="60%">
+                        <source src="static/videos/spatial_composition/generated_0000-0189.mp4"
+                                type="video/mp4">
+                    </video>
+            </div>
+            </div>
+        </div>
+    </div>
+ </section>
+
+<section class="hero is-small is-light">
+    <div class="hero-body">
+        <div class="container">
+            <div class="column is-centered has-text-centered">
+                <h2 class="title is-3">Style Transfer</h2>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+ <section class="hero is-small">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+
+                 <div class="column is-centered has-text-centered">
+                    <p><b>Crouched style</b></p>
+                    <video poster="" id="tree" autoplay controls muted loop width="100%">
+                        <source src="static/videos/style_transfer/crouched_0000-0093.mp4"
+                                type="video/mp4">
+                    </video>
+
+                </div>
+                 <div class="column is-centered has-text-centered">
+                    <p><b>Happy style</b></p>
+                    <video poster="" id="tree" autoplay controls muted loop width="100%">
+                        <source src="static/videos/style_transfer/happy_0000-0093.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+ </section>
+
+<section class="hero is-small is-light">
+    <div class="hero-body">
+        <div class="container">
+            <div class="column is-centered has-text-centered">
+                <h2 class="title is-3">Long Motion</h2>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+<section class="hero is-small is-light">
+    <div class="hero-body">
+        <div class="container">
+            <div class="column is-centered has-text-centered">
+                <h2 class="title is-3">Crowd Animation</h2>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container">
+            <div id="results-carousel" class="carousel results-carousel">
+                <div class="column is-centered has-text-centered">
+                    <p><b> “A person walks forward, bends down to pick something up off the ground.”</b></p>
+                    <video poster="" id="tree" autoplay controls muted loop height="100%">
+                        <source src="static/figures/bend.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-centered has-text-centered">
+                    <p><b>“a person turns to his right and paces back and forth.”</b></p>
+                    <video poster="" id="tree" autoplay controls muted loop height="100%">
+                        <source src="static/figures/turn.mp4"
+                                type="video/mp4">
+                </div>
+                <div class="column is-centered has-text-centered">
+                    <p><b>“A person punches in a manner consistent with martial arts.”</b></p>
+                    <video poster="" id="tree" autoplay controls muted loop height="100%">
+                        <source src="static/figures/punch.mp4"
+                                type="video/mp4">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section hero is-light">
+    <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Text-to-Motion</h2>
+                <p>
+                    Text-to-motion is the task of generating motion given an input text prompt.
+                    The output motion is expected to be both implementing the textual description, and a valid sample
+                    from the data distribution (i.e. adhering to general human abilities and the rules of physics).
+                    In addition, for each text prompt, we also expect a distribution of motions matching it, rather than
+                    just a single result.
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--/ Abstract. -->
+    </div>
+</section>
+
+
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container">
+            <div id="results-carousel" class="carousel results-carousel">
+                <div class="column is-centered has-text-centered">
+                    <p><b> “A person kicks.”</b></p>
+                    <video poster="" id="tree" autoplay controls muted loop height="100%">
+                        <source src="static/figures/kick1.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-centered has-text-centered">
+                    <p><b> “A person kicks.”</b></p>
+                    <video poster="" id="tree" autoplay controls muted loop height="100%">
+                        <source src="static/figures/kick2.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-centered has-text-centered">
+                    <p><b> “A person kicks.”</b></p>
+                    <video poster="" id="tree" autoplay controls muted loop height="100%">
+                        <source src="static/figures/kick3.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-centered has-text-centered">
+                    <p><b> “A person kicks.”</b></p>
+                    <video poster="" id="tree" autoplay controls muted loop height="100%">
+                        <source src="static/figures/kick4.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-centered has-text-centered">
+                    <p><b> “A person kicks.”</b></p>
+                    <video poster="" id="tree" autoplay controls muted loop height="100%">
+                        <source src="static/figures/kick5.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-centered has-text-centered">
+                    <p><b> “A person kicks.”</b></p>
+                    <video poster="" id="tree" autoplay controls muted loop height="100%">
+                        <source src="static/figures/kick6.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-centered has-text-centered">
+                    <p><b> “A person kicks.”</b></p>
+                    <video poster="" id="tree" autoplay controls muted loop height="100%">
+                        <source src="static/figures/kick7.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-centered has-text-centered">
+                    <p><b> “A person kicks.”</b></p>
+                    <video poster="" id="tree" autoplay controls muted loop height="100%">
+                        <source src="static/figures/kick8.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-centered has-text-centered">
+                    <p><b> “A person kicks.”</b></p>
+                    <video poster="" id="tree" autoplay controls muted loop height="100%">
+                        <source src="static/figures/kick9.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container">
+            <div id="results-carousel" class="carousel results-carousel">
+                <div class="column is-centered has-text-centered">
+                    <p><b> “A person is skipping rope.”</b></p>
+                    <video poster="" id="tree" autoplay controls muted loop height="100%">
+                        <source src="static/figures/rope1.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-centered has-text-centered">
+                    <p><b> “A person is skipping rope.”</b></p>
+                    <video poster="" id="tree" autoplay controls muted loop height="100%">
+                        <source src="static/figures/rope2.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-centered has-text-centered">
+                    <p><b> “A person is skipping rope.”</b></p>
+                    <video poster="" id="tree" autoplay controls muted loop height="100%">
+                        <source src="static/figures/rope3.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-centered has-text-centered">
+                    <p><b> “A person is skipping rope.”</b></p>
+                    <video poster="" id="tree" autoplay controls muted loop height="100%">
+                        <source src="static/figures/rope4.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-centered has-text-centered">
+                    <p><b> “A person is skipping rope.”</b></p>
+                    <video poster="" id="tree" autoplay controls muted loop height="100%">
+                        <source src="static/figures/rope5.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-centered has-text-centered">
+                    <p><b> “A person is skipping rope.”</b></p>
+                    <video poster="" id="tree" autoplay controls muted loop height="100%">
+                        <source src="static/figures/rope6.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-centered has-text-centered">
+                    <p><b> “A person is skipping rope.”</b></p>
+                    <video poster="" id="tree" autoplay controls muted loop height="100%">
+                        <source src="static/figures/rope7.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-centered has-text-centered">
+                    <p><b> “A person is skipping rope.”</b></p>
+                    <video poster="" id="tree" autoplay controls muted loop height="100%">
+                        <source src="static/figures/rope8.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section hero is-light">
+    <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Action-to-Motion</h2>
+                <p>
+                    Action-to-motion is the task of generating motion given an input action class, represented by a
+                    scalar.
+                    The output motion should faithfully animate the input action, and at the same time be natural and
+                    reflect the distribution of the dataset on which the model is trained.
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--/ Abstract. -->
+    </div>
+</section>
+
+
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container">
+            <div id="results-carousel" class="carousel results-carousel">
+                <div class="column is-centered has-text-centered">
+                    <p><b> (Class) Run</b></p>
+                    <video poster="" id="tree" autoplay controls muted loop height="100%">
+                        <source src="static/figures/run.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-centered has-text-centered">
+                    <p><b> (Class) Warm up</b></p>
+                    <video poster="" id="tree" autoplay controls muted loop height="100%">
+                        <source src="static/figures/warmup.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-centered has-text-centered">
+                    <p><b> (Class) Sit</b></p>
+                    <video poster="" id="tree" autoplay controls muted loop height="100%">
+                        <source src="static/figures/sit.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-centered has-text-centered">
+                    <p><b> (Class) Jump</b></p>
+                    <video poster="" id="tree" autoplay controls muted loop height="100%">
+                        <source src="static/figures/jump.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section hero is-light">
+    <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Motion Editing</h2>
+                <p>
+                    We also demonstrate completion and editing. By adapting diffusion image-inpainting, we set a motion
+                    prefix and suffix, and use our model to fill in the gap.
+                    Doing so under a textual condition guides MDM to fill the gap with a specific motion that still
+                    maintains the semantics of the original input.
+                    By performing inpainting in the joints space rather than temporally, we also demonstrate the
+                    semantic editing of specific body parts, without changing the others.
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--/ Abstract. -->
+    </div>
+</section>
+
+
+<section class="hero is-small">
+
+    <div class="column is-centered has-text-centered">
+        <h3 class="title is-4">Upper body editing (lower body is fixed)</h3>
+        <p>(Blue=Input, Gold=Synthesis)</p>
+        <video poster="" id="tree" autoplay controls muted loop height="100%">
+            <source src="static/figures/edit_upper.mp4"
+                    type="video/mp4">
+        </video>
+    </div>
+
+</section>
+
+
+<section class="section hero is-small">
+    <div class="container is-max-desktop">
+        <div class="column is-centered has-text-centered">
+            <h3 class="title is-4">Motion In-Betweening</h3>
+            <p>(Blue=Input, Gold=Synthesis)</p>
+            <video poster="" id="tree" autoplay controls muted loop height="100%">
+                <source src="static/figures/in_between.mp4"
+                        type="video/mp4">
+            </video>
+        </div>
+    </div>
+</section>
+
+
+<!--<section class="section" id="BibTeX">-->
+<!--    <div class="container is-max-desktop content">-->
+<!--      <h2 class="title">BibTeX</h2>-->
+<!--      <pre><code>-->
+<!--@article{ UPDATE THIS-->
+<!--}</code></pre>-->
+<!--    </div>-->
+<!--</section>-->
+
+
+<footer class="footer">
+    <!--  <div class="container">
+       <div class="content has-text-centered">
+         <a class="icon-link"
+         href="https://homes.cs.washington.edu/~kpar/nerfies/videos/nerfies_paper.pdf">
+         <i class="fas fa-file-pdf"></i>
+       </a>
+       <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+         <i class="fab fa-github"></i>
+       </a>
+     </div> -->
+    <div class="columns is-centered">
+        <div class="column is-8">
+            <div class="content">
+                <p>
+                    This website is licensed under a <a rel="license"
+                                                        href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                    Commons Attribution-ShareAlike 4.0 International License</a>.
+                </p>
+                <p>
+                    Website source code based on the <a href="https://nerfies.github.io/"> Nerfies</a> project page. If
+                    you want to reuse their <a
+                        href="https://github.com/nerfies/nerfies.github.io">source code</a>, please credit them
+                    appropriately.
+                </p>
+            </div>
+        </div>
+    </div>
+    </div>
+</footer>
+
+
+<script type="text/javascript">
+    var sc_project = 12351448;
+    var sc_invisible = 1;
+    var sc_security = "c676de4f";
+</script>
+<script type="text/javascript"
+        src="https://www.statcounter.com/counter/counter.js"
+        async></script>
+<noscript>
+    <div class="statcounter"><a title="Web Analytics"
+                                href="https://statcounter.com/" target="_blank"><img
+            class="statcounter"
+            src="https://c.statcounter.com/12351448/0/c676de4f/1/"
+            alt="Web Analytics"></a></div>
+</noscript>
+<!-- End of Statcounter Code -->
+
+</body>
+</html>
