@@ -162,3 +162,7 @@ body {
 /*  object-fit: initial;*/
 /*  width: 50%;*/
 /*}*/
+.tab {
+    display: inline-block;
+    margin-left: 1.5rem;
+}

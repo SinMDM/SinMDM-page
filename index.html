@@ -116,7 +116,7 @@
         <div class="hero-body">
 
             <div class="column is-centered has-text-centered">
-                <img src="static/figures/dragon_morelight2.png" alt="breakdancing dragons"/>
+                <img src="static/figures/dragon_morelight2 (1).png" alt="breakdancing dragons" width="80%"/>
             </div>
             <!--      <video id="teaser" autoplay muted loop playsinline height="100%">-->
             <!--        <source src="./static/figures/teaser_all.png"-->
@@ -149,30 +149,34 @@
                 <h2 class="title is-3">Abstract</h2>
                 <div class="content has-text-justified">
                     <p>
-                        Synthesizing realistic animations of humans, animals, and even imaginary creatures has long been
-                        a goal for artists and computer graphics professionals. Compared to the imaging domain, which is
-                        rich with large available datasets, the number of data instances for the motion domain is
-                        limited, particularly
-                        for the animation of animals and exotic creatures (e.g., dragons), which have unique skeletons
-                        and motion patterns. In this work, we present a Single Motion Diffusion Model, dubbed SinMDM, a
-                        model designed to learn the internal motifs of a single motion sequence with arbitrary topology
-                        and synthesize motions of arbitrary length that are faithful to them.
-                        We harness the power of diffusion models and present a denoising network designed specifically
-                        for the task of learning from a single input motion. Our transformer-based architecture avoids
-                        overfitting by using local attention layers that narrow the receptive field, and encourages
-                        motion diversity by using relative positional embedding. SinMDM can be applied in a variety of
-                        contexts, including spatial and temporal in-betweening, motion expansion, harmonization, style
-                        transfer, and crowd animation. Our results show that SinMDM outperforms existing methods both in
-                        quality and time-space efficiency. Moreover, while current approaches require additional
-                        training for different applications, our work facilitates these applications at inference
-                        time.</p>
+
+                        Synthesizing realistic animations of humans, animals, and even imaginary
+                        creatures has long been a goal for artists and computer graphics professionals.
+                        Compared to the imaging domain, which is rich with large available
+                        datasets, the number of data instances for the motion domain is limited,
+                        particularly for the animation of animals and exotic creatures (e.g., dragons),
+                        which have unique skeletons and motion patterns. In this work, we present
+                        a Single Motion Diffusion Model, dubbed SinMDM, a model designed to
+                        learn the internal motifs of a single motion sequence with arbitrary topology
+                        and synthesize motions of arbitrary length that are faithful to them. We
+                        harness the power of diffusion models and present a denoising network
+                        designed specifically for the task of learning from a single input motion. Our
+                        transformer-based architecture avoids overfitting by using local attention
+                        layers that narrow the receptive field, and encourages motion diversity by
+                        using relative positional embedding. SinMDM can be applied in a variety of
+                        contexts, including spatial and temporal in-betweening, motion expansion,
+                        style transfer, and crowd animation. Our results show that SinMDM outperforms
+                        existing methods both in quality and time-space efficiency. Moreover,
+                        while current approaches require additional training for different applications,
+                        our work facilitates these applications at inference time.
+                    </p>
                 </div>
 
-                 <div class="column is-centered has-text-centered">
+                <div class="column is-centered has-text-centered">
 
-                            <img src="static/figures/5_frames_michelle.png" alt="breakdancing dragons"/>
+                    <img src="static/figures/5_frames_michelle_transp.png" alt="breakdancing dragons"/>
 
-            </div>
+                </div>
             </div>
         </div>
         <!--/ Abstract. -->
@@ -190,218 +194,40 @@
                 <div class="content has-text-justified">
 
                     <p>
+                        Our goal is to construct a model that can generate a variety of
+                        synthesized motions that retain the core motion motifs of a single
+                        learned input sequence.
                         To allow training on a single motion, our denoising network is designed such that its overall
                         receptive field covers only a portion of the input
                         sequence. This effectively allows the network to simultaneously learn from multiple local
-                        temporal motion segments.
+                        temporal motion segments, as shown below.
                     </p>
                     <div class="column is-centered has-text-centered">
                         <img src="static/figures/narrow-v2-1.png" alt="cars peace" width="80%"/>
                     </div>
                     <p>
-                        We consider two alternative architectures to learn from single motion: 𝑝𝐴1
-                        𝜃, a transformer-based approach, and 𝑝𝐴2 𝜃, a convolutional-based approach, utilizing a
-                        simplified version of the UNet architecture.
+                        We consider two alternative architectures to learn from single motion:
+                        <var>p<sub>qna</sub></var> (left), a transformer-based approach,
+                        and <var>p<sub>unet</sub></var> (right), a convolutional-based
+                        approach, utilizing a simplified version of the UNet architecture.
                     </p>
                     <div class="column is-centered has-text-centered">
                         <img src="static/figures/qna-v2-1.png" alt="cars peace" width="40%"/>
                         <img src="static/figures/unet-v2-1.png" alt="cars peace" width="40%"/>
                     </div>
 
-
-                </div>
-            </div>
-        </div>
-        <!--/ Abstract. -->
-    </div>
-</section>
-
-
-<!-- 
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-
-      <div class="column is-centered has-text-centered">
-        <img src="static/figures/sampling.png" alt="cars peace"/>
-      </div>
-     
-    
-  </div>
-</div>
-</div>
-</section>
- -->
-
-<section class="hero is-small is-light">
-    <div class="hero-body">
-        <div class="container">
-            <div class="column is-centered has-text-centered">
-                <h2 class="title is-3">Temporal Composition</h2>
-            </div>
-        </div>
-    </div>
-    </div>
-</section>
-
-<section class="hero is-small">
-    <div class="hero-body">
-        <div class="container">
-            <div class="columns is-centered">
-                <div class="column is-centered has-text-centered">
-                    <p><b>Warmup to warmup</b></p>
-                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
-                        <source src="static/videos/temporal_composition/temporal_composition_warmup.mp4"
-                                type="video/mp4">
-                    </video>
-
-                </div>
-
-                <div class="column is-centered has-text-centered">
-                    <p><b>Walk to breakdance to walk</b></p>
-                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
-                        <source src="static/videos/temporal_composition/temporal_composition.mp4"
-                                type="video/mp4">
-                    </video>
-
-                </div>
-            </div>
-
-            <div class="columns is-centered">
-
-                <div class="column is-centered has-text-centered">
-                    <p><b>Horses from prefix</b>
+                    <p>
+                        Our model enables modeling motions of arbitrary skeletal topology, and can handle complex
+                        and non-trivial skeletons which often have no more than one animation sequence to learn from.
                     </p>
-                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
-                        <source src="static/videos/temporal_composition/horse_new.mp4"
-                                type="video/mp4">
-                    </video>
-                </div>
-
-                <div class="column is-centered has-text-centered">
-                    <p><b>Temporal outpainting</b></p>
-                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
-                        <source src="static/videos/temporal_composition/temporal_composition_outpainting.mp4"
-                                type="video/mp4">
-                    </video>
+                    <div class="column is-centered has-text-centered">
+                        <video poster="" id="tree" playsinline autoplay muted loop width="90%">
+                            <source src="static/videos/dragon/skeleton-highres.mp4"
+                                    type="video/mp4">
+                        </video>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-
-<section class="hero is-small is-light">
-    <div class="hero-body">
-        <div class="container">
-            <div class="column is-centered has-text-centered">
-                <h2 class="title is-3">Spatial Composition</h2>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="hero is-small">
-    <div class="hero-body">
-        <div class="container">
-            <div class="columns is-centered">
-
-                <div class="column is-centered has-text-centered">
-                    <p><b>Upper body reference</b></p>
-                    <video poster="" id="tree" playsinline autoplay muted loop width="80%">
-                        <source src="static/videos/spatial_composition/reference_upper_body_0000-0189.mp4"
-                                type="video/mp4">
-                    </video>
-
-                </div>
-                <div class="column is-centered has-text-centered">
-                    <p><b>Training Sequence</b></p>
-                    <video poster="" id="tree" playsinline autoplay muted loop width="80%">
-                        <source src="static/videos/spatial_composition/walk_in_circle_0000-0377.mp4"
-                                type="video/mp4">
-                    </video>
-                </div>
-            </div>
-
-            <div class="column is-centered has-text-centered">
-                <p><b>Generated</b>
-                </p>
-                <video poster="" id="tree" playsinline autoplay muted loop width="60%">
-                    <source src="static/videos/spatial_composition/generated_0000-0189.mp4"
-                            type="video/mp4">
-                </video>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="hero is-small is-light">
-    <div class="hero-body">
-        <div class="container">
-            <div class="column is-centered has-text-centered">
-                <h2 class="title is-3">Style Transfer</h2>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="hero is-small">
-    <div class="hero-body">
-        <div class="container">
-            <div class="columns is-centered">
-
-                <div class="column is-centered has-text-centered">
-                    <p><b>Crouched style</b></p>
-                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
-                        <source src="static/videos/style_transfer/crouched_0000-0093.mp4"
-                                type="video/mp4">
-                    </video>
-
-                </div>
-                <div class="column is-centered has-text-centered">
-                    <p><b>Happy style</b></p>
-                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
-                        <source src="static/videos/style_transfer/happy_0000-0093.mp4"
-                                type="video/mp4">
-                    </video>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<section class="hero is-small is-light">
-    <div class="hero-body">
-        <div class="container">
-            <div class="column is-centered has-text-centered">
-                <h2 class="title is-3">Long Motion</h2>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="hero is-small">
-    <div class="hero-body">
-        <div class="container">
-            <div class="columns is-centered">
-
-                <div class="column is-centered has-text-centered">
-                    <p><b>Original motion</b></p>
-                    <video poster="" id="tree" playsinline autoplay muted controls width="60%">
-                        <source src="static/videos/long_motion/gt0000-0359.mp4"
-                                type="video/mp4">
-                    </video>
-
-                </div>
-                <div class="column is-centered has-text-centered">
-                    <p><b>Generated 60 seconds</b></p>
-                    <video poster="" id="tree" playsinline autoplay muted controls loop width="100%">
-                        <source src="static/videos/long_motion/generated0000-1800.mp4"
-                                type="video/mp4">
-                    </video>
-                </div>
-            </div>
-
         </div>
     </div>
 </section>
@@ -409,9 +235,16 @@
 
 <section class="hero is-small is-light">
     <div class="hero-body">
-        <div class="container">
+        <div class="container is-max-desktop">
             <div class="column is-centered has-text-centered">
                 <h2 class="title is-3">Crowd Animation</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        Although trained on a single sequence, during inference SinMDM can generate a crowd performing a
+                        variety of similar motions. For example, our model can generate a
+                        diverse crowd based on a hopping ostrich, a jaguar or a breakdancing dragon.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -419,8 +252,8 @@
 
 <section class="hero is-small">
     <div class="hero-body">
-        <div class="container">
-            <div class="columns is-centered">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered is-four-fifths">
 
                 <div class="column is-centered has-text-centered">
                     <p><b>Jaguars</b></p>
@@ -441,106 +274,223 @@
 
             <div class="column is-centered has-text-centered">
                 <p><b>Dragons</b></p>
-                <video poster="" id="tree" playsinline autoplay muted loop width="60%">
-                    <source src="static/videos/crowd/dragonfly3-highres.mp4"
-                            type="video/mp4">
-                </video>
-            </div>
-
-            <div class="column is-centered has-text-centered">
-                <p><b>Dragons</b></p>
-                <video poster="" id="tree" playsinline autoplay muted loop width="60%">
-                    <source src="static/videos/dragon/dragon_input.mp4"
-                            type="video/mp4">
-                </video>
-            </div>
-
-            <div class="column is-centered has-text-centered">
-                <p><b>Dragons</b></p>
-                <video poster="" id="tree" playsinline autoplay muted loop width="60%">
+                <video poster="" id="tree" playsinline autoplay muted loop width="70%">
                     <source src="static/videos/dragon/many_dragons_highres.mp4"
                             type="video/mp4">
                 </video>
             </div>
 
+        </div>
+    </div>
+</section>
+
+
+<section class="hero is-small is-light">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
             <div class="column is-centered has-text-centered">
-                <p><b>Dragons</b></p>
-                <video poster="" id="tree" playsinline autoplay muted loop width="60%">
-                    <source src="static/videos/dragon/one_generated_qna.mp4"
-                            type="video/mp4">
-                </video>
+                <h2 class="title is-3">Temporal Composition</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        A given motion sequence is temporally composed with a synthesized one.
+                        Meaning a part of the motion is given, for example the beginning and the end, and the rest is
+                        completed by the network. In the examples below, given parts are shaded in gray, and generated
+                        parts are full color. Note how the network generates diverse results
+                        for the same inputs, and the completed motion naturally matches the given parts even
+                        when they are very different.
+                    </p>
+                </div>
             </div>
-            <div class="column is-centered has-text-centered">
-                <p><b>Dragons</b></p>
-                <video poster="" id="tree" playsinline autoplay muted loop width="60%">
-                    <source src="static/videos/dragon/skeleton-highres.mp4"
-                            type="video/mp4">
-                </video>
+        </div>
+    </div>
+    </div>
+</section>
+
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column is-centered has-text-centered">
+                    <p><b>Warmup to Warmup</b></p>
+                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
+                        <source src="static/videos/temporal_composition/temporal_composition_warmup.mp4"
+                                type="video/mp4">
+                    </video>
+
+                </div>
+
+                <div class="column is-centered has-text-centered">
+                    <p><b>Walk to Breakdance to Walk</b></p>
+                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
+                        <source src="static/videos/temporal_composition/temporal_composition.mp4"
+                                type="video/mp4">
+                    </video>
+
+                </div>
             </div>
 
             <div class="columns is-centered">
-                 <div class="column is-centered has-text-centered">
-                    <p><b>Comparison punch gt</b></p>
+
+                <div class="column is-centered has-text-centered">
+                    <p><b>Same Motion Prefix</b>
+                    </p>
                     <video poster="" id="tree" playsinline autoplay muted loop width="100%">
-                        <source src="static/videos/comparison/punch_gt_0000-0150.mp4"
+                        <source src="static/videos/temporal_composition/horse_new.mp4"
                                 type="video/mp4">
                     </video>
+                </div>
+
+                <div class="column is-centered has-text-centered">
+                    <p><b>Motion Expansion</b></p>
+                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
+                        <source src="static/videos/temporal_composition/temporal_composition_outpainting.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="hero is-small is-light">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="column is-centered has-text-centered">
+                <h2 class="title is-3">Spatial Composition</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        Motion composition can also be done spatially by using selected joints as input,
+                        and generating the rest. Below we show control over the upper body. The motion of the
+                        upper body is determined by a reference motion unseen by the network (Warm-up), and the model
+                        synthesizes the rest of the joints according to the learned motion motifs (Walk in cirlce).
+                        In the composed result the top body part performs a warm-up activity, and the bottom body part
+                        walks in a curvy
+                        line.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+
+                <div class="column is-centered has-text-centered">
+                    <p><b>Upper Body Reference</b></p>
+                    <video poster="" id="tree" playsinline autoplay muted loop width="80%">
+                        <source src="static/videos/spatial_composition/reference_upper_body_0000-0189.mp4"
+                                type="video/mp4">
+                    </video>
+
                 </div>
                 <div class="column is-centered has-text-centered">
-                    <p><b>Comparison punch qna</b></p>
-                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
-                        <source src="static/videos/comparison/punch_qna_0000-0360.mp4"
-                                type="video/mp4">
-                    </video>
-                </div>
-                 <div class="column is-centered has-text-centered">
-                    <p><b>Comparison punch unet</b></p>
-                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
-                        <source src="static/videos/comparison/punch_unet_0000-0355.mp4"
-                                type="video/mp4">
-                    </video>
-                </div>
-                <div class="column is-centered has-text-centered">
-                    <p><b>Comparison punch unet</b></p>
-                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
-                        <source src="static/videos/comparison/punch_ganimator_0000-0360.mp4"
+                    <p><b>Training Sequence</b></p>
+                    <video poster="" id="tree" playsinline autoplay muted loop width="80%">
+                        <source src="static/videos/spatial_composition/walk_in_circle_0000-0377.mp4"
                                 type="video/mp4">
                     </video>
                 </div>
             </div>
 
-             <div class="columns is-centered">
-                 <div class="column is-centered has-text-centered">
-                    <p><b>Comparison salsa gt</b></p>
+            <div class="column is-centered has-text-centered">
+                <p><b>Composed Result</b>
+                </p>
+                <video poster="" id="tree" playsinline autoplay muted loop width="60%">
+                    <source src="static/videos/spatial_composition/generated_0000-0189.mp4"
+                            type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="hero is-small is-light">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="column is-centered has-text-centered">
+                <h2 class="title is-3">Style Transfer</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        In the case of style transfer the model is trained on the style motion, and the content
+                        motion, unseen by the network, is adjusted to match the style motion's motifs.
+                        Below are examples for transferring "happy" and "crouched" styles to the same walking content
+                        motion.
+                        Note how both generated results and content motion match in stride pace and rhythm.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+
+                <div class="column is-centered has-text-centered">
+                    <p><b>"Crouched"<span class="tab"></span>Content<span class="tab"></span>Result</b></p>
                     <video poster="" id="tree" playsinline autoplay muted loop width="100%">
-                        <source src="static/videos/comparison/salsa_gt_0000-0355.mp4"
+                        <source src="static/videos/style_transfer/crouched_0000-0093.mp4"
                                 type="video/mp4">
                     </video>
+
                 </div>
                 <div class="column is-centered has-text-centered">
-                    <p><b>Comparison salsa qna</b></p>
+                    <p><b>"Happy"<span class="tab"></span>Content<span class="tab"></span>Result</b></p>
                     <video poster="" id="tree" playsinline autoplay muted loop width="100%">
-                        <source src="static/videos/comparison/salsa_qna_0000-0355.mp4"
-                                type="video/mp4">
-                    </video>
-                </div>
-                 <div class="column is-centered has-text-centered">
-                    <p><b>Comparison salsa unet</b></p>
-                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
-                        <source src="static/videos/comparison/salsa_unet_0000-0355.mp4"
-                                type="video/mp4">
-                    </video>
-                </div>
-                <div class="column is-centered has-text-centered">
-                    <p><b>Comparison salsa unet</b></p>
-                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
-                        <source src="static/videos/comparison/salsa_ganimator_0000-0355.mp4"
+                        <source src="static/videos/style_transfer/happy_0000-0093.mp4"
                                 type="video/mp4">
                     </video>
                 </div>
             </div>
 
+        </div>
+    </div>
+</section>
 
+<section class="hero is-small is-light">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="column is-centered has-text-centered">
+                <h2 class="title is-3">Long Motion</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        Our network can synthesize variable length motions, and generate very long animations with no
+                        additional training.
+                        See below how the input sequence ends long before the generated sequence, which is 60 seconds
+                        long.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+
+                <div class="column is-centered has-text-centered">
+                    <p><b>Original motion</b></p>
+                    <video poster="" id="tree" playsinline autoplay muted controls width="60%">
+                        <source src="static/videos/long_motion/gt0000-0359.mp4"
+                                type="video/mp4">
+                    </video>
+
+                </div>
+                <div class="column is-centered has-text-centered">
+                    <p><b>Generated 60 seconds</b></p>
+                    <video poster="" id="tree" playsinline autoplay muted controls loop width="100%">
+                        <source src="static/videos/long_motion/generated0000-1800.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+            </div>
         </div>
     </div>
 </section>
